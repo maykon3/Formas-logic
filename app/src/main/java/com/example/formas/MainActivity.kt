@@ -55,9 +55,9 @@ class MainActivity : ComponentActivity() {
                             verticalArrangement = Arrangement.Center,
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            NavHost(navController = navController, startDestination = "login") {
+                            NavHost(navController = navController, startDestination = "splash") {
                                 composable("splash") { Inicio(navController) }
-                                composable("login") { Login(navController) }
+                                composable("login") { ConteudoLogin(navController) }
                             }
                         }
                     }
@@ -78,7 +78,7 @@ fun Inicio(navController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .paint(
-                painter = painterResource(id = R.drawable.whatsapp_image_2024_11_05_at_22_32_42),
+                painter = painterResource(id = R.drawable.fundologin),
                 contentScale = ContentScale.Crop
             )
 
@@ -100,10 +100,11 @@ fun Inicio(navController: NavHostController) {
 
         Button(
             colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)),
+            onClick = { navController.navigate("login") },
             modifier = Modifier
                 .width(249.dp)
                 .height(53.dp),
-            onClick = { navController.navigate("login") }
+
         ) {
             Text("Começar", fontSize = 25.sp, fontWeight = FontWeight.Medium )
         }

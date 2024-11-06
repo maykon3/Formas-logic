@@ -43,7 +43,7 @@ import com.example.formas.ui.theme.FormasTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 // Conteúdo da tela de cadastro
-fun Login(navController: NavHostController) {
+fun ConteudoLogin(navController: NavHostController) {
 
     var email by remember {
         mutableStateOf("") // variavel para o campo de texto email
@@ -59,7 +59,7 @@ fun Login(navController: NavHostController) {
             .padding(top = 20.dp)
             .fillMaxSize()
             .paint(
-                painter = painterResource(id = R.drawable.whatsapp_image_2024_11_05_at_22_47_52__1_),
+                painter = painterResource(id = R.drawable.fundologin),
                 contentScale = ContentScale.Crop
             )
     ) {
@@ -181,6 +181,6 @@ fun Login(navController: NavHostController) {
 @Composable
 private fun LoginPreview() {
     FormasTheme {
-        Login(rememberNavController())
+        ConteudoLogin(rememberNavController())
     }
 }
