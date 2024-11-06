@@ -28,6 +28,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -84,12 +85,13 @@ fun Inicio(navController: NavHostController) {
 
     ) {
         Text("Transforme cálculos em soluções simples e rápidas", color = Color.White ,
-            textAlign = TextAlign.Center, fontSize = 20.sp
+            textAlign = TextAlign.Center, fontSize = 22.sp, fontWeight = FontWeight.Medium,
+            modifier = Modifier.padding(10.dp)
             )
 
         Image(painter = painterResource(id = R.drawable.group), contentDescription = "", modifier = Modifier. padding(top = 80.dp) )
 
-        Spacer(modifier = Modifier.padding(top = 20.dp))
+        Spacer(modifier = Modifier.padding(top = 40.dp))
 
         Text("AlgebrApp", fontSize = 38.sp)
 
@@ -101,7 +103,8 @@ fun Inicio(navController: NavHostController) {
             modifier = Modifier
                 .width(249.dp)
                 .height(53.dp),
-            onClick = { /*TODO*/ }) {
+            onClick = { navController.navigate("login") }
+        ) {
             Text("Começar", fontSize = 25.sp, fontWeight = FontWeight.Medium )
         }
 
