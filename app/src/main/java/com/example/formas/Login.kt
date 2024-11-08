@@ -258,7 +258,7 @@ fun ConteudoLogin(navController: NavHostController) {
                 colors = androidx.compose.material3.CardDefaults.outlinedCardColors(
                     containerColor = Color.Transparent  // Define a cor de fundo como transparente
                 ),
-                border = BorderStroke(1.5.dp, Color(corRoxa))
+                border = BorderStroke(1.5.dp, Color(corRoxa)) // Define a borda do carda com a cor escolhida, 1.5dp e o tamanho da borda 
             ) {
                 Row(
                     modifier = Modifier
