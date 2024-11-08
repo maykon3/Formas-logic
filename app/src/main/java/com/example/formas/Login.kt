@@ -1,7 +1,11 @@
 package com.example.formas
 
+import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,7 +16,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -28,11 +39,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -54,15 +69,16 @@ fun ConteudoLogin(navController: NavHostController) {
     var rememberMe by remember { mutableStateOf(false) }  // Variável para o botão de "Lembre de mim"
 
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .padding(top = 20.dp)
             .fillMaxSize()
+            .padding(top = 20.dp)
             .paint(
                 painter = painterResource(id = R.drawable.fundologin),
                 contentScale = ContentScale.Crop
-            )
-    ) {
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+        ) {
         Row(
             modifier = Modifier.padding(top = 25.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -73,113 +89,224 @@ fun ConteudoLogin(navController: NavHostController) {
                 modifier = Modifier.size(33.dp)
 
             )
-            Text("AlgebrApp", color = Color.White, fontSize = 17.sp, modifier = Modifier.padding(start = 10.dp))
+            Text(
+                "AlgebrApp",
+                color = Color.White,
+                fontSize = 17.sp,
+                modifier = Modifier.padding(start = 10.dp)
+            )
         }
-        Spacer(modifier = Modifier.padding(100.dp))
 
-        Column() {
-            Row(
-                modifier = Modifier
-                    .padding(start = 30.dp)
-                    .padding(bottom = 14.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.vector),
-                    contentDescription = "",
-                    modifier = Modifier.size(18.dp)
-                )
-                Text(
-                    "E-mail ou Usuário",
-                    color = Color.White,
-                    fontSize = 14.sp,
-                    modifier = Modifier.padding(start = 10.dp)
-                )
+        Spacer(modifier = Modifier.padding(50.dp))
 
-            }
-
-            TextField(
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            OutlinedTextField(
                 value = email,
                 onValueChange = { newText -> email = newText },
-                label = { Text("Digite seu Email", fontSize = 15.sp, modifier = Modifier.padding(start = 12.dp))},
-                placeholder = { Text("Exemplo de Placeholder ") },
-                modifier = Modifier
-                    .width(331.dp)
-                    .height(28.dp),
-                shape = RoundedCornerShape(30.dp), // Define o arredondamento das bordas
-            )
-
-            Spacer(modifier = Modifier.padding(15.dp))
-
-            Column() {
-                Row(
-                    modifier = Modifier
-                        .padding(start = 30.dp)
-                        .padding(bottom = 10.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.vector1),
-                        contentDescription = "",
-                        modifier = Modifier.size(18.dp)
+                label = {
+                    Text(
+                        "E-mail ou nome de usuário",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium
                     )
+                },
+                leadingIcon = {
+                    Image(
+                        painter = painterResource(R.drawable.vector),
+                        contentDescription = "Ícone do campo de texto",
+                        modifier = Modifier.size(20.dp)
+                    )
+                },
+                modifier = Modifier
+                    .width(334.82.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color(corRoxa),
+                    unfocusedBorderColor = Color(corRoxa)
+
+                )
+            )
+            Spacer(modifier = Modifier.padding(2.dp))
+
+            OutlinedTextField(
+                value = senha,
+                onValueChange = { newText -> senha = newText },
+                label = {
                     Text(
                         "Senha",
                         color = Color.White,
-                        fontSize = 15.sp,
-                        modifier = Modifier.padding(start = 10.dp)
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium
                     )
+                },
+                leadingIcon = {
+                    Image(
+                        painter = painterResource(R.drawable.vector1),
+                        contentDescription = "Ícone do campo de texto",
+                        modifier = Modifier.size(20.dp)
+                    )
+                },
+                modifier = Modifier
+                    .padding(top = 8.dp)
+                    .width(334.82.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color(corRoxa),
+                    unfocusedBorderColor = Color(corRoxa)
 
-                }
-
-                TextField(
-                    value = senha,
-                    onValueChange = { newText -> senha = newText },
-                    label = { Text("Digite sua Senha", fontSize = 15.sp, modifier = Modifier.padding(start = 12.dp)) },
-                    placeholder = { Text("Exemplo de Placeholder ") },
-                    modifier = Modifier
-                        .width(330.dp)
-                        .height(28.dp), // Define a altura exata
-                    shape = RoundedCornerShape(30.dp), // Arredondamento das bordas
                 )
+            )
 
-            }
+            Text(
+                "Esqueci minha senha",
+                fontSize = 16.sp,
+                color = Color.White,
+                textDecoration = TextDecoration.Underline,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 30.dp)
+                    .padding(top = 10.dp)
+            )
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Switch de "Lembre de mim"
             Row(
-                verticalAlignment = Alignment.CenterVertically,
-
+                modifier = Modifier.padding(start = 30.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Lembre de mim", color = Color.White ,fontSize = 16.sp,
-                    modifier = Modifier
-                        .padding(start = 40.dp)
-                        .padding(top = 30.dp)
+                Text(
+                    "Lembrar de mim",
+                    fontSize = 16.sp,
+                    color = Color.White
                 )
-
                 Switch(
                     modifier = Modifier
-                        .padding(start = 60.dp)
-                        .padding(top = 30.dp)
-                        .scale(0.8f),
+                        .scale(0.8f)
+                        .padding(start = 100.dp),
                     checked = rememberMe,
                     onCheckedChange = { rememberMe = it },
                     colors = SwitchDefaults.colors(
                         uncheckedThumbColor = Color(corRoxa),
-                        checkedTrackColor = Color(corRoxa), // Cor da trilha (track) quando ligado
-                        )
+                        checkedTrackColor = Color(corRoxa)
+                    )
+                )
+            }
+
+            Button(
+                onClick = { /* ação ao clicar */ },
+                shape = RoundedCornerShape(30.dp),
+                modifier = Modifier
+                    .width(124.dp)
+            ) {
+                Text(
+                    text = "Entrar",
+                    color = Color.White,
+                    fontSize = 20.sp,
+                    modifier = Modifier
+                        .align(alignment = Alignment.CenterVertically)
+
                 )
             }
 
 
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(horizontal = 25.dp)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.line_6),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .size(width = 109.dp, height = 50.dp)
+                )
+                Text(
+                    "OU",
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(corRoxa),
+                    modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                )
+
+                Image(
+                    painter = painterResource(R.drawable.line_6),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .size(width = 109.dp, height = 50.dp)
+                )
+            }
+
+            Text(
+                "Entrar com contas de redes sociais:",
+                color = Color.White,
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+                    .padding(top = 2.dp)
+            )
+            Image(
+                painter = painterResource(R.drawable.group_105),
+                contentDescription = "",
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .size(width = 120.dp, height = 80.dp)
+            )
+            OutlinedCard(
+                modifier = Modifier
+                    .width(268.dp)
+                    .height(47.dp),
+                colors = androidx.compose.material3.CardDefaults.outlinedCardColors(
+                    containerColor = Color.Transparent  // Define a cor de fundo como transparente
+                ),
+                border = BorderStroke(1.5.dp, Color(corRoxa))
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        text = "Não tem uma conta? ",
+                        fontSize = 14.sp,
+                        color = Color.White
+                    )
+
+                    Text(
+                        "Cadastre-se",
+                        fontSize = 16.sp,
+                        color = Color.White,
+                        textDecoration = TextDecoration.Underline,
+                        fontWeight = FontWeight.Medium,
+
+                    )
+
+                }
+
+            }
+            Spacer(modifier = Modifier.padding(10.dp))
+            Text(
+                "Ao continuar, estou de acordo com os Termos de Uso e com o Aviso de Privacidade ",
+                color = Color.Black,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Medium,
+                textDecoration = TextDecoration.Underline,
+                fontSize = 15.sp,
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+                    .padding(top = 2.dp)
+            )
+        }
+
+
         }
     }
-}
+
+
 
 @Preview
 @Composable
-private fun LoginPreview() {
+fun LoginPreview() {
     FormasTheme {
         ConteudoLogin(rememberNavController())
     }
