@@ -81,7 +81,7 @@ fun ConteudoLogin(navController: NavHostController) {
 
         ) {
         Row(
-            modifier = Modifier.padding(top = 20.dp),
+            modifier = Modifier.padding(top = 40.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
@@ -118,18 +118,22 @@ fun ConteudoLogin(navController: NavHostController) {
                 },
                 leadingIcon = {
                     Image(
-                        painter = painterResource(R.drawable.vector),
+                        painter = painterResource(R.drawable.vector2),
                         contentDescription = "Ícone do campo de texto",
-                        modifier = Modifier.size(20.dp)
+                        modifier = Modifier.padding(start = 15.dp).size(20.dp)
                     )
                 },
                 modifier = Modifier
                     .width(334.dp)
-                    .height(50.dp),
+                    .height(60.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa),
 
+                ),
+                shape = RoundedCornerShape(25.dp),
+                textStyle = TextStyle(
+                    fontSize = 16.sp, textAlign = TextAlign.Start
                 )
             )
             Spacer(modifier = Modifier.padding(2.dp))
@@ -147,32 +151,34 @@ fun ConteudoLogin(navController: NavHostController) {
                 },
                 leadingIcon = {
                     Image(
-                        painter = painterResource(R.drawable.vector1),
+                        painter = painterResource(R.drawable.vector),
                         contentDescription = "Ícone do campo de texto",
-                        modifier = Modifier.size(20.dp)
+                        modifier = Modifier.padding(start = 15.dp).size(20.dp)
                     )
                 },
                 modifier = Modifier
                     .padding(top = 15.dp)
                     .width(334.dp)
-                    .height(50.dp),
+                    .height(60.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa)
-
+                ),
+                shape = RoundedCornerShape(25.dp),
+                textStyle = TextStyle(
+                    fontSize = 16.sp, textAlign = TextAlign.Start
                 )
             )
 
             Text(
                 "Esqueci minha senha",
-                fontSize = 16.sp,
+                fontSize = 15.sp,
                 color = Color.White,
                 textDecoration = TextDecoration.Underline,
-                fontWeight = FontWeight.Medium,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start =40.dp)
-                    .padding(top = 20.dp)
+                    .padding(start = 40.dp)
+                    .padding(top = 30.dp)
                     .clickable { navController.navigate("cadastro") }
             )
 
@@ -200,9 +206,9 @@ fun ConteudoLogin(navController: NavHostController) {
 
             Button(
                 onClick = { /* ação ao clicar */ },
-                shape = RoundedCornerShape(30.dp),
+                shape = RoundedCornerShape(30.dp), colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)),
                 modifier = Modifier
-                    .width(124.dp)
+                    .width(155.dp)
             ) {
                 Text(
                     text = "Entrar",
