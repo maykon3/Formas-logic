@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -80,7 +81,7 @@ fun ConteudoLogin(navController: NavHostController) {
 
         ) {
         Row(
-            modifier = Modifier.padding(top = 25.dp),
+            modifier = Modifier.padding(top = 20.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
@@ -101,7 +102,8 @@ fun ConteudoLogin(navController: NavHostController) {
 
         Column(
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+
         ) {
             OutlinedTextField(
                 value = email,
@@ -122,10 +124,11 @@ fun ConteudoLogin(navController: NavHostController) {
                     )
                 },
                 modifier = Modifier
-                    .width(334.82.dp),
+                    .width(334.dp)
+                    .height(50.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color(corRoxa),
-                    unfocusedBorderColor = Color(corRoxa)
+                    unfocusedBorderColor = Color(corRoxa),
 
                 )
             )
@@ -150,8 +153,9 @@ fun ConteudoLogin(navController: NavHostController) {
                     )
                 },
                 modifier = Modifier
-                    .padding(top = 8.dp)
-                    .width(334.82.dp),
+                    .padding(top = 15.dp)
+                    .width(334.dp)
+                    .height(50.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa)
@@ -167,8 +171,9 @@ fun ConteudoLogin(navController: NavHostController) {
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 30.dp)
-                    .padding(top = 10.dp)
+                    .padding(start =40.dp)
+                    .padding(top = 20.dp)
+                    .clickable { navController.navigate("cadastro") }
             )
 
             Row(
@@ -278,6 +283,7 @@ fun ConteudoLogin(navController: NavHostController) {
                         color = Color.White,
                         textDecoration = TextDecoration.Underline,
                         fontWeight = FontWeight.Medium,
+                        modifier = Modifier.clickable { navController.navigate("cadastro") }
 
                     )
 

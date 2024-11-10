@@ -58,6 +58,7 @@ class MainActivity : ComponentActivity() {
                             NavHost(navController = navController, startDestination = "splash") {
                                 composable("splash") { Inicio(navController) }
                                 composable("login") { ConteudoLogin(navController) }
+                                composable("cadastro") { TelaCadastro(navController) }
                             }
                         }
                     }
@@ -69,6 +70,8 @@ class MainActivity : ComponentActivity() {
 
 
 val corRoxa = 0xFFFF5952D1
+val corEscura = 0xFFFF213F4E
+val corAzul = 0xFFFF3288F6
 @Composable
 // Conteúdo da tela de login
 fun Inicio(navController: NavHostController) {
