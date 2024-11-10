@@ -59,6 +59,7 @@ class MainActivity : ComponentActivity() {
                                 composable("splash") { Inicio(navController) }
                                 composable("login") { ConteudoLogin(navController) }
                                 composable("cadastro") { TelaCadastro(navController) }
+                                composable("novo") { CadastroSucesso(navController) }
                             }
                         }
                     }

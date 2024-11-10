@@ -16,11 +16,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -33,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -61,7 +64,7 @@ fun TelaCadastro(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
-                painter = painterResource(id = R.drawable.vector2),
+                painter = painterResource(id = R.drawable.vector3),
                 contentDescription = "",
                 modifier = Modifier
                     .padding(end = 90.dp)
@@ -145,10 +148,21 @@ fun TelaCadastro(navController: NavController) {
                                 "Nome",
                                 color = Color.Black,
                                 fontSize = 16.sp,
-                                modifier = Modifier.padding(start = 15.dp)
                             )
                         },
-                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.White),
+                        leadingIcon = {
+                            Image(
+                                painter = painterResource(R.drawable.vector),
+                                contentDescription = "Ícone do campo de texto",
+                                modifier = Modifier.size(2.dp)
+                            )
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(corRoxa),
+                            unfocusedBorderColor = Color(corRoxa),
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White
+                            ),
                         shape = RoundedCornerShape(30.dp),
                         textStyle = TextStyle(
                             fontSize = 16.sp, textAlign = TextAlign.Start
@@ -168,10 +182,20 @@ fun TelaCadastro(navController: NavController) {
                                 "Email",
                                 color = Color.Black,
                                 fontSize = 16.sp,
-                                modifier = Modifier.padding(start = 15.dp)
+                            )
+                        }, leadingIcon = {
+                            Image(
+                                painter = painterResource(R.drawable.vector),
+                                contentDescription = "Ícone do campo de texto",
+                                modifier = Modifier.size(2.dp)
                             )
                         },
-                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.White),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(corRoxa),
+                            unfocusedBorderColor = Color(corRoxa),
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White
+                        ),
                         shape = RoundedCornerShape(30.dp),
                         textStyle = TextStyle(
                             fontSize = 16.sp, textAlign = TextAlign.Start
@@ -187,13 +211,24 @@ fun TelaCadastro(navController: NavController) {
                         onValueChange = { newText -> numero = newText },
                         label = {
                             Text(
-                                "Numero",
+                                "Número",
                                 color = Color.Black,
                                 fontSize = 16.sp,
-                                modifier = Modifier.padding(start = 15.dp)
                             )
                         },
-                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.White),
+                        leadingIcon = {
+                            Image(
+                                painter = painterResource(R.drawable.vector),
+                                contentDescription = "Ícone do campo de texto",
+                                modifier = Modifier.size(2.dp)
+                            )
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(corRoxa),
+                            unfocusedBorderColor = Color(corRoxa),
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White
+                        ),
                         shape = RoundedCornerShape(30.dp),
                         textStyle = TextStyle(
                             fontSize = 16.sp, textAlign = TextAlign.Start
@@ -211,11 +246,22 @@ fun TelaCadastro(navController: NavController) {
                             Text(
                                 "Data De Nascimento",
                                 color = Color.Black,
-                                fontSize = 17.sp,
-                                modifier = Modifier.padding(start = 15.dp)
+                                fontSize = 17.sp
                             )
                         },
-                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.White),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(corRoxa),
+                            unfocusedBorderColor = Color(corRoxa),
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White
+                        ),
+                        leadingIcon = {
+                            Image(
+                                painter = painterResource(R.drawable.vector),
+                                contentDescription = "Ícone do campo de texto",
+                                modifier = Modifier.size(2.dp)
+                            )
+                        },
                         shape = RoundedCornerShape(30.dp),
                         textStyle = TextStyle(
                             fontSize = 16.sp, textAlign = TextAlign.Start
@@ -234,11 +280,22 @@ fun TelaCadastro(navController: NavController) {
                             Text(
                                 "Senha",
                                 color = Color.Black,
-                                fontSize = 16.sp,
-                                modifier = Modifier.padding(start = 15.dp)
+                                fontSize = 16.sp
                             )
                         },
-                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.White),
+                        leadingIcon = {
+                            Image(
+                                painter = painterResource(R.drawable.vector),
+                                contentDescription = "Ícone do campo de texto",
+                                modifier = Modifier.size(2.dp)
+                            )
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(corRoxa),
+                            unfocusedBorderColor = Color(corRoxa),
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White
+                        ),
                         shape = RoundedCornerShape(30.dp),
                         textStyle = TextStyle(
                             fontSize = 16.sp, textAlign = TextAlign.Start
@@ -254,14 +311,24 @@ fun TelaCadastro(navController: NavController) {
                         onValueChange = { newText -> senha2 = newText },
                         label = {
                             Text(
-                                "Confirma Senha",
+                                "Confirmar Senha",
                                 color = Color.Black,
-                                fontSize = 16.sp,
-
-                                modifier = Modifier.padding(start = 15.dp)
+                                fontSize = 16.sp
                             )
                         },
-                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.White),
+                        leadingIcon = {
+                            Image(
+                                painter = painterResource(R.drawable.vector),
+                                contentDescription = "Ícone do campo de texto",
+                                modifier = Modifier.size(2.dp)
+                            )
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(corRoxa),
+                            unfocusedBorderColor = Color(corRoxa),
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White
+                        ),
                         shape = RoundedCornerShape(30.dp),
                         textStyle = TextStyle(
                             fontSize = 16.sp, textAlign = TextAlign.Start
@@ -274,7 +341,8 @@ fun TelaCadastro(navController: NavController) {
                 Spacer(modifier = Modifier.padding(10.dp))
 
                 Button(
-                    onClick = { navController.navigate("login") },
+                    onClick = { navController.navigate("novo") },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)),
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                         .width(150.dp)
@@ -285,7 +353,7 @@ fun TelaCadastro(navController: NavController) {
                 OutlinedCard(
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
-                        .padding(top = 10.dp)
+                        .padding(top = 15.dp)
                         .width(268.dp)
                         .height(47.dp),
                     colors = androidx.compose.material3.CardDefaults.outlinedCardColors(
@@ -341,10 +409,92 @@ fun TelaCadastro(navController: NavController) {
     }
 }
 
+@Composable
+fun CadastroSucesso(navController: NavController) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(corEscura))
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(top = 45.dp)
+                .padding(start = 25.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.vector3),
+                contentDescription = "",
+                modifier = Modifier
+                    .padding(end = 90.dp)
+                    .size(20.dp)
+                    .clickable { navController.navigate("login") }
+            )
+            Image(
+                painter = painterResource(id = R.drawable.group),
+                contentDescription = "",
+                modifier = Modifier
+                    .size(33.dp)
+
+            )
+            Text(
+                "AlgebrApp",
+                color = Color.White,
+                fontSize = 17.sp,
+                modifier = Modifier.padding(start = 10.dp)
+            )
+        }
+
+        Spacer(modifier = Modifier.padding(37.dp))
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+
+            Card(
+                modifier = Modifier
+                    .fillMaxSize(),
+                colors = CardDefaults.cardColors(containerColor = Color(corAzul)),
+                shape = RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp)
+            ) {
+            Text("Conta Cadastrada \n\n   Com Sucesso !",
+                color = Color.White,
+                fontSize = 35.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(top = 190.dp)
+                    .align(Alignment.CenterHorizontally)
+            )
+                Spacer(modifier = Modifier.padding(10.dp))
+
+                Button(
+                    onClick = { navController.navigate("login") },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)),
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .width(150.dp)
+                ) {
+                    Text("Entrar", fontSize = 17.sp)
+                }
+            }
+
+        }
+    }}
+
 @Preview(showBackground = true)
 @Composable
 fun CadastroPreview() {
     FormasTheme {
         TelaCadastro(rememberNavController())
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RegistrePreview() {
+    FormasTheme {
+        CadastroSucesso(rememberNavController())
     }
 }
