@@ -56,7 +56,7 @@ fun TelaCadastro(navController: NavController) {
     ) {
         Row(
             modifier = Modifier
-                .padding(top = 30.dp)
+                .padding(top = 45.dp)
                 .padding(start = 25.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -95,7 +95,7 @@ fun TelaCadastro(navController: NavController) {
                 .align(Alignment.CenterHorizontally)
         )
 
-        Spacer(modifier = Modifier.padding(5.dp))
+        Spacer(modifier = Modifier.padding(10.dp))
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
