@@ -117,22 +117,22 @@ fun TelaCadastro(navController: NavController) {
                 ) {
 
                     var email by remember {
-                        mutableStateOf("") // variavel para o campo de texto email
+                        mutableStateOf("") // variavel para o campo de texto Email
                     }
                     var nome by remember {
-                        mutableStateOf("") // variavel para o campo de texto email
+                        mutableStateOf("") // variavel para o campo de texto Nome
                     }
                     var numero by remember {
-                        mutableStateOf("") // variavel para o campo de texto email
+                        mutableStateOf("") // variavel para o campo de texto Número
                     }
                     var nascimento by remember {
-                        mutableStateOf("") // variavel para o campo de texto email
+                        mutableStateOf("") // variavel para o campo de texto Data de Nascimento 
                     }
                     var senha by remember {
-                        mutableStateOf("") // variavel para o campo de texto email
+                        mutableStateOf("") // variavel para o campo de texto Senha
                     }
                     var senha2 by remember {
-                        mutableStateOf("") // variavel para o campo de texto email
+                        mutableStateOf("") // variavel para o campo de texto Confirmar Senha 
                     }
 
 
