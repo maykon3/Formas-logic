@@ -476,7 +476,7 @@ fun CadastroSucesso(navController: NavController) {
                         .align(Alignment.CenterHorizontally)
                         .width(150.dp)
                 ) {
-                    Text("Entrar", fontSize = 20.sp)
+                    Text("Entrar", fontSize = 17.sp)
                 }
             }
 
