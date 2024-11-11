@@ -118,18 +118,22 @@ fun ConteudoLogin(navController: NavHostController) {
                 },
                 leadingIcon = {
                     Image(
-                        painter = painterResource(R.drawable.vector),
+                        painter = painterResource(R.drawable.vector2),
                         contentDescription = "Ícone do campo de texto",
                         modifier = Modifier.size(20.dp)
                     )
                 },
                 modifier = Modifier
                     .width(334.dp)
-                    .height(50.dp),
+                    .height(60.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa),
 
+                ) ,
+                shape = RoundedCornerShape(25.dp),
+                textStyle = TextStyle(
+                    fontSize = 16.sp, textAlign = TextAlign.Start
                 )
             )
             Spacer(modifier = Modifier.padding(2.dp))
@@ -147,7 +151,7 @@ fun ConteudoLogin(navController: NavHostController) {
                 },
                 leadingIcon = {
                     Image(
-                        painter = painterResource(R.drawable.vector1),
+                        painter = painterResource(R.drawable.vector),
                         contentDescription = "Ícone do campo de texto",
                         modifier = Modifier.size(20.dp)
                     )
@@ -160,6 +164,10 @@ fun ConteudoLogin(navController: NavHostController) {
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa)
 
+                ),
+                shape = RoundedCornerShape(25.dp),
+                textStyle = TextStyle(
+                    fontSize = 16.sp, textAlign = TextAlign.Start
                 )
             )
 
