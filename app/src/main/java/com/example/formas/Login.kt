@@ -104,7 +104,7 @@ fun ConteudoLogin(navController: NavHostController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
 
-        ) {
+            ) {
             OutlinedTextField(
                 value = email,
                 onValueChange = { newText -> email = newText },
@@ -120,7 +120,9 @@ fun ConteudoLogin(navController: NavHostController) {
                     Image(
                         painter = painterResource(R.drawable.vector2),
                         contentDescription = "Ícone do campo de texto",
-                        modifier = Modifier.padding(start = 15.dp).size(20.dp)
+                        modifier = Modifier
+                            .padding(start = 15.dp)
+                            .size(20.dp)
                     )
                 },
                 modifier = Modifier
@@ -130,7 +132,7 @@ fun ConteudoLogin(navController: NavHostController) {
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa),
 
-                ),
+                    ),
                 shape = RoundedCornerShape(25.dp),
                 textStyle = TextStyle(
                     fontSize = 16.sp, textAlign = TextAlign.Start
@@ -153,7 +155,9 @@ fun ConteudoLogin(navController: NavHostController) {
                     Image(
                         painter = painterResource(R.drawable.vector),
                         contentDescription = "Ícone do campo de texto",
-                        modifier = Modifier.padding(start = 15.dp).size(20.dp)
+                        modifier = Modifier
+                            .padding(start = 15.dp)
+                            .size(20.dp)
                     )
                 },
                 modifier = Modifier
@@ -206,7 +210,8 @@ fun ConteudoLogin(navController: NavHostController) {
 
             Button(
                 onClick = { /* ação ao clicar */ },
-                shape = RoundedCornerShape(30.dp), colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)),
+                shape = RoundedCornerShape(30.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)),
                 modifier = Modifier
                     .width(155.dp)
             ) {
@@ -255,13 +260,27 @@ fun ConteudoLogin(navController: NavHostController) {
                     .padding(horizontal = 20.dp)
                     .padding(top = 2.dp)
             )
-            Image(
-                painter = painterResource(R.drawable.group_105),
-                contentDescription = "",
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .size(width = 120.dp, height = 80.dp)
-            )
+
+            Spacer(modifier = Modifier.padding(top = 20.dp))
+
+            Row {
+                Image(
+                    painter = painterResource(R.drawable.face),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .size(47.dp)
+                )
+                Spacer(modifier = Modifier.padding(start = 15.dp))
+                Image(
+                    painter = painterResource(R.drawable.google),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .size(47.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.padding(top = 20.dp))
+
             OutlinedCard(
                 modifier = Modifier
                     .width(268.dp)
@@ -269,7 +288,10 @@ fun ConteudoLogin(navController: NavHostController) {
                 colors = androidx.compose.material3.CardDefaults.outlinedCardColors(
                     containerColor = Color.Transparent  // Define a cor de fundo como transparente
                 ),
-                border = BorderStroke(1.5.dp, Color(corRoxa)) // Define a borda do carda com a cor escolhida, 1.5dp e o tamanho da borda 
+                border = BorderStroke(
+                    1.5.dp,
+                    Color(corRoxa)
+                ) // Define a borda do carda com a cor escolhida, 1.5dp e o tamanho da borda
             ) {
                 Row(
                     modifier = Modifier
@@ -311,9 +333,8 @@ fun ConteudoLogin(navController: NavHostController) {
         }
 
 
-        }
     }
-
+}
 
 
 @Preview
