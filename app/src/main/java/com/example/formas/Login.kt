@@ -13,16 +13,23 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -51,6 +58,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -69,9 +78,11 @@ fun ConteudoLogin(navController: NavHostController) {
         mutableStateOf("") // variavel para o campo de texto email
     }
     var senha by remember {
-        mutableStateOf("") // variavel para o campo de texto senha
+        mutableStateOf("skskskskjd") // variavel para o campo de texto senha
     }
     var rememberMe by remember { mutableStateOf(false) }  // Variável para o botão de "Lembre de mim"
+
+    var senhaVisivel by remember { mutableStateOf(false) } // Controle de visibilidade
 
     Column(
         modifier = Modifier
@@ -124,7 +135,7 @@ fun ConteudoLogin(navController: NavHostController) {
                     Image(
                         painter = painterResource(R.drawable.vector2),
                         contentDescription = "Ícone do campo de texto",
-                        modifier = Modifier.size(20.dp)
+                        modifier = Modifier.size(20.dp).offset(x = 282.dp)
                     )
                 },
                 modifier = Modifier
@@ -152,17 +163,22 @@ fun ConteudoLogin(navController: NavHostController) {
                         fontWeight = FontWeight.Medium
                     )
                 },
+                visualTransformation = if (senhaVisivel) VisualTransformation.None else PasswordVisualTransformation(), // Alterna entre texto visível e bolinhas
+                trailingIcon = {
+                    IconButton(onClick = { senhaVisivel = !senhaVisivel }) { // Alterna o estado ao clicar
+                    }
+                },
                 leadingIcon = {
                     Image(
                         painter = painterResource(R.drawable.vector),
                         contentDescription = "Ícone do campo de texto",
-                        modifier = Modifier.size(20.dp)
+                        modifier = Modifier.size(20.dp).offset(x = 282.dp)
                     )
                 },
                 modifier = Modifier
                     .padding(top = 15.dp)
                     .width(334.dp)
-                    .height(50.dp),
+                    .height(55.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa)
