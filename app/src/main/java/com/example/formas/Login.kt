@@ -21,6 +21,7 @@ import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
@@ -31,6 +32,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -40,8 +42,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
@@ -129,7 +133,6 @@ fun ConteudoLogin(navController: NavHostController) {
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color(corRoxa),
                     unfocusedBorderColor = Color(corRoxa),
-
                 ) ,
                 shape = RoundedCornerShape(25.dp),
                 textStyle = TextStyle(
@@ -206,11 +209,13 @@ fun ConteudoLogin(navController: NavHostController) {
                 )
             }
 
-            Button(
+            ElevatedButton(
                 onClick = { /* ação ao clicar */ },
                 shape = RoundedCornerShape(30.dp),
                 modifier = Modifier
-                    .width(124.dp)
+                    .width(124.dp),
+                elevation = ButtonDefaults.elevatedButtonElevation(8.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)) // faz o conteudo do button ter uma coloracao
             ) {
                 Text(
                     text = "Entrar",
@@ -298,18 +303,39 @@ fun ConteudoLogin(navController: NavHostController) {
                 }
 
             }
+
             Spacer(modifier = Modifier.padding(10.dp))
-            Text(
-                "Ao continuar, estou de acordo com os Termos de Uso e com o Aviso de Privacidade ",
-                color = Color.Black,
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Medium,
-                textDecoration = TextDecoration.Underline,
-                fontSize = 15.sp,
-                modifier = Modifier
-                    .padding(horizontal = 20.dp)
-                    .padding(top = 2.dp)
-            )
+
+            Column {
+                Row {
+                    Text(
+                        "Ao continuar, estou de acordo com os",
+                        fontSize = 15.sp, color = Color.White
+                    )
+                    Spacer(modifier = Modifier.padding(start = 1.dp))
+                    Text("Termos de Uso",
+                        fontSize = 15.sp,
+                        color = Color(corRoxa),
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier
+                            .clickable { })
+                }
+                Row {
+                    Text(
+                        "e com o ",
+                        fontSize = 15.sp,color = Color.White,
+                        modifier = Modifier
+                            .padding(start = 70.dp)
+                    )
+                    Spacer(modifier = Modifier.padding(start = 1.dp))
+                    Text("Aviso de Privacidade ",
+                        fontSize = 15.sp,
+                        color = Color(corRoxa),
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier
+                            .clickable { })
+                }
+            }
         }
 
 

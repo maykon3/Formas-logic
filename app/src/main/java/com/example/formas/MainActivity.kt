@@ -13,17 +13,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -89,10 +93,20 @@ fun Inicio(navController: NavHostController) {
 
 
     ) {
-        Text("Transforme cálculos em soluções simples e rápidas", color = Color.White ,
-            textAlign = TextAlign.Center, fontSize = 22.sp, fontWeight = FontWeight.Medium,
-            modifier = Modifier.padding(10.dp)
-            )
+        Text("Simplificando Estudos, Ampliando Habilidades.",
+            color = Color.White ,
+            textAlign = TextAlign.Center,
+            fontSize = 22.sp,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier
+                .padding(10.dp),
+            style = TextStyle(//para fazer o texto ter uma sombra
+                shadow = Shadow(
+                    color = Color.Black,  // Cor da sombra
+                    offset = Offset(2f, 8f),  // Deslocamento (x, y)
+                    blurRadius = 6f  // Grau de desfoque da sombra
+                )
+            ))
 
         Image(painter = painterResource(id = R.drawable.group), contentDescription = "", modifier = Modifier. padding(top = 80.dp) )
 
@@ -103,7 +117,8 @@ fun Inicio(navController: NavHostController) {
         Spacer(modifier = Modifier.padding(top = 70.dp))
 
 
-        Button(
+        ElevatedButton(
+            elevation = ButtonDefaults.elevatedButtonElevation(8.dp, focusedElevation = 10.dp, hoveredElevation = 10.dp, pressedElevation = 20.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)),
             onClick = { navController.navigate("login") },
             modifier = Modifier

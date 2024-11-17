@@ -390,17 +390,37 @@ fun TelaCadastro(navController: NavController) {
 
                 Spacer(modifier = Modifier.padding(10.dp))
 
-                Text(
-                    "Ao continuar, estou de acordo com os Termos de Uso e com o Aviso de Privacidade ",
-                    color = Color.Black,
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.Medium,
-                    textDecoration = TextDecoration.Underline,
-                    fontSize = 15.sp,
-                    modifier = Modifier
-                        .padding(horizontal = 20.dp)
-                        .padding(top = 2.dp)
-                )
+                Column {
+                    Row {
+                        Text(
+                            "Ao continuar, estou de acordo com os",
+                            fontSize = 15.sp, color = Color.White,modifier = Modifier
+                                .padding(start = 10.dp)
+                        )
+                        Spacer(modifier = Modifier.padding(start = 1.dp))
+                        Text("Termos de Uso",
+                            fontSize = 15.sp,
+                            color = Color(corRoxa),
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier
+                                .clickable { })
+                    }
+                    Row {
+                        Text(
+                            "e com o ",
+                            fontSize = 15.sp, color = Color.White,
+                            modifier = Modifier
+                                .padding(start = 70.dp)
+                        )
+                        Spacer(modifier = Modifier.padding(start = 1.dp))
+                        Text("Aviso de Privacidade ",
+                            fontSize = 15.sp,
+                            color = Color(corRoxa),
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier
+                                .clickable { })
+                    }
+                }
 
             }
         }
