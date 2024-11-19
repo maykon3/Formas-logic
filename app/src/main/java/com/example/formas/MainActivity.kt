@@ -64,6 +64,9 @@ class MainActivity : ComponentActivity() {
                                 composable("login") { ConteudoLogin(navController) }
                                 composable("cadastro") { TelaCadastro(navController) }
                                 composable("novo") { CadastroSucesso(navController) }
+                                composable("esqueci"){ Esqueci(navController) }
+                                composable("mudarsenha") { SenhaNova(navController) }
+                                composable("senhaalterada") { NewPass(navController) }
                             }
                         }
                     }
@@ -77,6 +80,7 @@ class MainActivity : ComponentActivity() {
 val corRoxa = 0xFFFF5952D1
 val corEscura = 0xFFFF213F4E
 val corAzul = 0xFFFF3288F6
+val corText = 0xFFFF03022C
 
 @Composable
 // Conteúdo da tela de login

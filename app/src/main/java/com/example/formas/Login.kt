@@ -78,7 +78,7 @@ fun ConteudoLogin(navController: NavHostController) {
         mutableStateOf("") // variavel para o campo de texto email
     }
     var senha by remember {
-        mutableStateOf("skskskskjd") // variavel para o campo de texto senha
+        mutableStateOf("") // variavel para o campo de texto senha
     }
     var rememberMe by remember { mutableStateOf(false) }  // Variável para o botão de "Lembre de mim"
 
@@ -200,7 +200,7 @@ fun ConteudoLogin(navController: NavHostController) {
                     .fillMaxWidth()
                     .padding(start =40.dp)
                     .padding(top = 20.dp)
-                    .clickable { navController.navigate("cadastro") }
+                    .clickable { navController.navigate("esqueci") }
             )
 
             Row(
@@ -326,11 +326,11 @@ fun ConteudoLogin(navController: NavHostController) {
                 Row {
                     Text(
                         "Ao continuar, estou de acordo com os",
-                        fontSize = 15.sp, color = Color.White
+                        fontSize = 13.sp, color = Color.White
                     )
                     Spacer(modifier = Modifier.padding(start = 1.dp))
                     Text("Termos de Uso",
-                        fontSize = 15.sp,
+                        fontSize = 13.sp,
                         color = Color(corRoxa),
                         textDecoration = TextDecoration.Underline,
                         modifier = Modifier
@@ -339,13 +339,13 @@ fun ConteudoLogin(navController: NavHostController) {
                 Row {
                     Text(
                         "e com o ",
-                        fontSize = 15.sp,color = Color.White,
+                        fontSize = 13.sp,color = Color.White,
                         modifier = Modifier
                             .padding(start = 70.dp)
                     )
                     Spacer(modifier = Modifier.padding(start = 1.dp))
                     Text("Aviso de Privacidade ",
-                        fontSize = 15.sp,
+                        fontSize = 13.sp,
                         color = Color(corRoxa),
                         textDecoration = TextDecoration.Underline,
                         modifier = Modifier

@@ -394,12 +394,12 @@ fun TelaCadastro(navController: NavController) {
                     Row {
                         Text(
                             "Ao continuar, estou de acordo com os",
-                            fontSize = 15.sp, color = Color.White,modifier = Modifier
+                            fontSize = 13.sp, color = Color.White,modifier = Modifier
                                 .padding(start = 10.dp)
                         )
                         Spacer(modifier = Modifier.padding(start = 1.dp))
                         Text("Termos de Uso",
-                            fontSize = 15.sp,
+                            fontSize = 13.sp,
                             color = Color(corRoxa),
                             textDecoration = TextDecoration.Underline,
                             modifier = Modifier
@@ -408,13 +408,13 @@ fun TelaCadastro(navController: NavController) {
                     Row {
                         Text(
                             "e com o ",
-                            fontSize = 15.sp, color = Color.White,
+                            fontSize = 13.sp, color = Color.White,
                             modifier = Modifier
                                 .padding(start = 70.dp)
                         )
                         Spacer(modifier = Modifier.padding(start = 1.dp))
                         Text("Aviso de Privacidade ",
-                            fontSize = 15.sp,
+                            fontSize = 13.sp,
                             color = Color(corRoxa),
                             textDecoration = TextDecoration.Underline,
                             modifier = Modifier
