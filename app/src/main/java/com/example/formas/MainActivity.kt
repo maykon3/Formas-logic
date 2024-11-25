@@ -70,6 +70,7 @@ class MainActivity : ComponentActivity() {
                                 composable("senhaalterada") { NewPass(navController) }
                                 composable("home") { Home(navController) }
                                 composable("matematica") { PageMate(navController) }
+                                composable("retangulo") { CalcReta(navController) }
                             }
                         }
                     }
@@ -84,6 +85,8 @@ val corRoxa = 0xFFFF5952D1
 val corEscura = 0xFFFF213F4E
 val corAzul = 0xFFFF3288F6
 val corText = 0xFFFF03022C
+val corArea = 0xFFFF4F5965
+val corCalc = 0xFFFF3288F6
 
 @Composable
 // Conteúdo da tela de login
