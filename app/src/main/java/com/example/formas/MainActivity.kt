@@ -67,6 +67,7 @@ class MainActivity : ComponentActivity() {
                                 composable("esqueci"){ Esqueci(navController) }
                                 composable("mudarsenha") { SenhaNova(navController) }
                                 composable("senhaalterada") { NewPass(navController) }
+                                composable("home") { Home(navController) }
                             }
                         }
                     }

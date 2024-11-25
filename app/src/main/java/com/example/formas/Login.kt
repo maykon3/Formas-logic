@@ -226,7 +226,7 @@ fun ConteudoLogin(navController: NavHostController) {
             }
 
             ElevatedButton(
-                onClick = { /* ação ao clicar */ },
+                onClick = { navController.navigate("home")},
                 shape = RoundedCornerShape(30.dp),
                 modifier = Modifier
                     .width(124.dp),
@@ -322,7 +322,9 @@ fun ConteudoLogin(navController: NavHostController) {
 
             Spacer(modifier = Modifier.padding(10.dp))
 
-            Column {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 Row {
                     Text(
                         "Ao continuar, estou de acordo com os",
