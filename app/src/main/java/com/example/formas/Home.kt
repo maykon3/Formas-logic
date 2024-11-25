@@ -99,7 +99,7 @@ fun Home(navController: NavController) {
             Spacer(modifier = Modifier.padding(10.dp))
 
             Button(
-                onClick = { },
+                onClick = { navController.navigate("matematica") },
                 shape = RoundedCornerShape(30.dp),
                 modifier = Modifier
                     .width(172.dp)
@@ -150,9 +150,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.ret_ngulo),
                     contentDescription = ""
@@ -176,9 +176,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.quadrado),
                     contentDescription = ""
@@ -202,9 +202,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.circulo),
                     contentDescription = ""
@@ -228,9 +228,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.trape),
                     contentDescription = ""
@@ -254,9 +254,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.poligonp),
                     contentDescription = ""
@@ -299,9 +299,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.cubo),
                     contentDescription = ""
@@ -325,9 +325,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.cuboide),
                     contentDescription = ""
@@ -351,9 +351,9 @@ fun Home(navController: NavController) {
                 containerColor = Color(corRoxa)
             )
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Image(
                     painter = painterResource(R.drawable.romboedro),
                     contentDescription = ""
@@ -369,10 +369,214 @@ fun Home(navController: NavController) {
     }
 }
 
+@Composable
+fun PageMate(navController: NavController) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .paint(
+                painter = painterResource(id = R.drawable.home),
+                contentScale = ContentScale.Crop
+            )
+    ) {
+        Spacer(modifier = Modifier.padding(top = 20.dp))
+
+        Row(
+            modifier = Modifier.padding(top = 20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.group),
+                contentDescription = "",
+                modifier = Modifier.size(33.dp)
+
+            )
+            Text(
+                "AlgebrApp",
+                color = Color.White,
+                fontSize = 17.sp,
+                modifier = Modifier.padding(start = 10.dp)
+            )
+        }
+
+        Spacer(modifier = Modifier.padding(top = 20.dp))
+
+        Text(
+            "O País da Matemágica e O Número de Ouro",
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Light,
+            modifier = Modifier
+                .padding(10.dp)
+        )
+
+        Spacer(modifier = Modifier.padding(top = 20.dp))
+
+        Row {
+
+            Button(
+                onClick = { navController.navigate("home") },
+                shape = RoundedCornerShape(30.dp),
+                modifier = Modifier
+                    .width(172.dp)
+                    .height(40.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.White
+                )
+            ) {
+                Text(
+                    "Geometria",
+                    color = Color.Black,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Light
+                )
+            }
+
+            Spacer(modifier = Modifier.padding(10.dp))
+
+            Button(
+                onClick = { },
+                shape = RoundedCornerShape(30.dp),
+                modifier = Modifier
+                    .width(172.dp)
+                    .height(40.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(corRoxa)
+                )
+            ) {
+                Text(
+                    "Matemática",
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Light
+                )
+            }
+
+
+        }
+
+        Spacer(modifier = Modifier.padding(top = 20.dp))
+
+        Text(
+            "Matemática",
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier
+                .padding(10.dp)
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.line_10),
+            contentDescription = "",
+            modifier = Modifier
+                .offset(y = (-3).dp)
+        )
+
+        Text(
+            "Olá! Vamos mergulhar nesta plataforma incrível que tenho repleta de ferramentas para lógica e matemática. É como ter uma caixa de ferramentas supercarregada cheia de tudo que você precisa para lidar com todos os tipos de quebra-cabeças e equações alucinantes.",
+            fontWeight = FontWeight.Medium,
+            color = Color.White,
+            fontSize = 13.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .padding(23.dp)
+                .offset(y = (-17).dp)
+        )
+
+        Button(
+            onClick = { },
+            shape = RoundedCornerShape(30.dp),
+            modifier = Modifier
+                .width(200.dp)
+                .height(40.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(corRoxa)
+            )
+        ) {
+            Text(
+                "Conheça seu número",
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Light
+            )
+        }
+
+        Spacer(modifier = Modifier.padding(top = 10.dp))
+
+        Button(
+            onClick = { },
+            shape = RoundedCornerShape(30.dp),
+            modifier = Modifier
+                .width(200.dp)
+                .height(40.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(corRoxa)
+            )
+        ) {
+            Text(
+                "Maior divisor comum",
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Light
+            )
+        }
+
+        Spacer(modifier = Modifier.padding(top = 10.dp))
+
+        Button(
+            onClick = { },
+            shape = RoundedCornerShape(30.dp),
+            modifier = Modifier
+                .width(200.dp)
+                .height(40.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(corRoxa)
+            )
+        ) {
+            Text(
+                "Menor multiplo comum",
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Light
+            )
+        }
+
+        Spacer(modifier = Modifier.padding(top = 10.dp))
+
+        Button(
+            onClick = { },
+            shape = RoundedCornerShape(30.dp),
+            modifier = Modifier
+                .width(200.dp)
+                .height(40.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(corRoxa)
+            )
+        ) {
+            Text(
+                "Par ou ímpar",
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Light
+            )
+        }
+
+
+    }
+
+}
+
 @Preview
 @Composable
 private fun HomePreview() {
     FormasTheme {
         Home(rememberNavController())
+    }
+}
+
+@Preview
+@Composable
+private fun PagePreview() {
+    FormasTheme {
+        PageMate(rememberNavController())
     }
 }

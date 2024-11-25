@@ -225,12 +225,11 @@ fun ConteudoLogin(navController: NavHostController) {
                 )
             }
 
-            ElevatedButton(
+            Button(
                 onClick = { navController.navigate("home")},
                 shape = RoundedCornerShape(30.dp),
                 modifier = Modifier
                     .width(124.dp),
-                elevation = ButtonDefaults.elevatedButtonElevation(8.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(corRoxa)) // faz o conteudo do button ter uma coloracao
             ) {
                 Text(

@@ -1,5 +1,6 @@
 package com.example.formas
 
+import android.graphics.pdf.PdfDocument.Page
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -68,6 +69,7 @@ class MainActivity : ComponentActivity() {
                                 composable("mudarsenha") { SenhaNova(navController) }
                                 composable("senhaalterada") { NewPass(navController) }
                                 composable("home") { Home(navController) }
+                                composable("matematica") { PageMate(navController) }
                             }
                         }
                     }
