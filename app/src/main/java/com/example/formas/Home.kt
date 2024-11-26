@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -38,6 +39,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -203,7 +205,7 @@ fun Home(navController: NavController) {
         Spacer(modifier = Modifier.padding(top = 14.dp))
 
         Button(
-            onClick = { navController.navigate("retangulo")},
+            onClick = { navController.navigate("retangulo") },
             shape = RoundedCornerShape(30.dp),
             modifier = Modifier
                 .width(200.dp)
@@ -577,6 +579,12 @@ fun PageMate(navController: NavController) {
 
 @Composable
 fun CalcReta(navController: NavController) {
+
+    var base by remember { mutableStateOf("") }
+    var altura by remember { mutableStateOf("") }
+    var area by remember { mutableStateOf<Double?>(0.0) }
+    var area_retangulo = "%.2f".format(area)
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -662,16 +670,18 @@ fun CalcReta(navController: NavController) {
                 .height(258.dp),
         ) {
             Row(
-                modifier = Modifier.padding(start = 5.dp)
+                modifier = Modifier.padding(start = 20.dp)
             ) {
                 Column(
                     modifier = Modifier.padding(start = 5.dp)
                 ) {
-                    Spacer(modifier = Modifier.padding(top = 30.dp))
 
                     Image(
                         painter = painterResource(id = R.drawable.area_retangulo),
                         contentDescription = "",
+                        modifier = Modifier
+                            .size(150.dp)
+                            .offset(y = 30.dp)
                     )
 
                     Card(
@@ -679,25 +689,38 @@ fun CalcReta(navController: NavController) {
                         modifier = Modifier
                             .width(160.dp)
                             .height(50.dp)
-                            .offset(x = 15.dp),
+                            .offset(x = 15.dp)
+                            .offset(y = 30.dp),
                         colors = CardDefaults.cardColors(containerColor = Color(corArea))
                     ) {
-                        Text(
-                            "Área :",
-                            modifier = Modifier
-                                .padding(top = 15.dp)
-                                .padding(start = 15.dp),
-                            color = Color.White,
-                            fontWeight = FontWeight.Light,
-                            fontSize = 15.sp,
-                        )
-                    }
+                        Row (
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.offset(y = 10.dp)
+                            ){
+                            Text(
+                                "Área :  ",
+                                modifier = Modifier
+                                    .padding(start = 15.dp),
+                                color = Color.White,
+                                fontWeight = FontWeight.Light,
+                                fontSize = 18.sp,
+                            )
 
+                            Text(
+                                text = area_retangulo,
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = Color.White,
+
+                            )
+                        }
+
+                    }
                 }
                 Column {
-                    Spacer(modifier = Modifier.padding(top = 21.dp))
+                    Spacer(modifier = Modifier.padding(top = 30.dp))
 
-                    var base by remember { mutableStateOf("") }
+
                     OutlinedTextField(
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
@@ -719,11 +742,14 @@ fun CalcReta(navController: NavController) {
                             unfocusedContainerColor = Color(corRoxa)
                         ),
                         shape = RoundedCornerShape(10.dp),
+                        keyboardOptions = KeyboardOptions.Default.copy(
+                            keyboardType = KeyboardType.Number
+                        )
                     )
 
                     Spacer(modifier = Modifier.padding(top = 10.dp))
 
-                    var altura by remember { mutableStateOf("") }
+
                     OutlinedTextField(
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
@@ -745,12 +771,20 @@ fun CalcReta(navController: NavController) {
                             unfocusedContainerColor = Color(corRoxa)
                         ),
                         shape = RoundedCornerShape(10.dp),
+                        keyboardOptions = KeyboardOptions.Default.copy(
+                            keyboardType = KeyboardType.Number
+                        )
                     )
 
                     Spacer(modifier = Modifier.padding(top = 20.dp))
 
+
+
                     Button(
-                        onClick = { navController.navigate("") },
+                        onClick = {
+                            area =
+                                if (base.isNotEmpty() && altura.isNotEmpty()) altura.toDouble() * base.toDouble() else 0.0
+                        },
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(corCalc)),
                         modifier = Modifier

@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -113,7 +114,8 @@ fun TelaCadastro(navController: NavController) {
                 shape = RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp)
             ) {
                 Column(
-                    modifier = Modifier.padding(top = 30.dp)
+                    modifier = Modifier.padding(top = 30.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
                     var email by remember {
@@ -390,12 +392,12 @@ fun TelaCadastro(navController: NavController) {
 
                 Spacer(modifier = Modifier.padding(10.dp))
 
-                Column {
-                    Row {
+                Column( horizontalAlignment = Alignment.CenterHorizontally) {
+                    Row (){
                         Text(
                             "Ao continuar, estou de acordo com os",
                             fontSize = 13.sp, color = Color.White,modifier = Modifier
-                                .padding(start = 10.dp)
+                                .padding(start = 30.dp)
                         )
                         Spacer(modifier = Modifier.padding(start = 1.dp))
                         Text("Termos de Uso",
