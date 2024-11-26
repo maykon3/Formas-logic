@@ -166,8 +166,8 @@ fun Home(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(R.drawable.circulo),
-                    contentDescription = ""
+                    painter = painterResource(R.drawable.circulo_home),
+                    contentDescription = "",
                 )
 
                 Spacer(modifier = Modifier.padding(start = 10.dp))
@@ -808,6 +808,207 @@ fun CalcReta(navController: NavController) {
 
 }
 
+@Composable
+fun CalcCirculo(navController: NavController) {
+
+    var base by remember { mutableStateOf("") }
+    var altura by remember { mutableStateOf("") }
+    var area by remember { mutableStateOf<Double?>(0.0) }
+    var area_retangulo = "%.2f".format(area)
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .paint(
+                painter = painterResource(id = R.drawable.home),
+                contentScale = ContentScale.Crop
+            )
+    ) {
+        Spacer(modifier = Modifier.padding(top = 20.dp))
+
+        Row(
+            modifier = Modifier.padding(top = 20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.group),
+                contentDescription = "",
+                modifier = Modifier.size(33.dp)
+
+            )
+            Text(
+                "AlgebrApp",
+                color = Color.White,
+                fontSize = 17.sp,
+                modifier = Modifier.padding(start = 10.dp)
+            )
+        }
+
+        Spacer(modifier = Modifier.padding(top = 30.dp))
+
+        Text(
+            "Geometria do Círculo",
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier
+                .padding(10.dp)
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.line_10),
+            contentDescription = "",
+            modifier = Modifier
+                .offset(y = (-3).dp)
+        )
+
+        Spacer(modifier = Modifier.padding(top = 10.dp))
+
+        Button(
+            onClick = { },
+            shape = RoundedCornerShape(30.dp),
+            modifier = Modifier
+                .width(172.dp)
+                .height(40.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(corRoxa)
+            )
+        ) {
+            Text("Geometria", fontSize = 15.sp, fontWeight = FontWeight.Light)
+        }
+
+        Spacer(modifier = Modifier.padding(top = 5.dp))
+
+        Text(
+            "Utilize esta calculadora para acessar informações diversas sobre um Círculo perfeito. Introduza os dados necessários para visualizar os resultados.",
+            fontWeight = FontWeight.Light,
+            color = Color.White,
+            fontSize = 17.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .padding(10.dp)
+                .offset(y = (-1).dp)
+        )
+
+        Spacer(modifier = Modifier.padding(top = 10.dp))
+
+        Card(
+            shape = RoundedCornerShape(30.dp),
+            modifier = Modifier
+                .width(370.dp)
+                .height(258.dp),
+        ) {
+            Row(
+                modifier = Modifier.padding(start = 20.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(start = 5.dp)
+                ) {
+
+                    Image(
+                        painter = painterResource(id = R.drawable.circulo),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .size(150.dp)
+                            .offset(y = 30.dp)
+                    )
+
+                    Card(
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier
+                            .width(160.dp)
+                            .height(50.dp)
+                            .offset(x = 15.dp)
+                            .offset(y = 30.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color(corArea))
+                    ) {
+                        Row (
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.offset(y = 10.dp)
+                        ){
+                            Text(
+                                "Área :  ",
+                                modifier = Modifier
+                                    .padding(start = 15.dp),
+                                color = Color.White,
+                                fontWeight = FontWeight.Light,
+                                fontSize = 18.sp,
+                            )
+
+                            Text(
+                                text = area_retangulo,
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = Color.White,
+
+                                )
+                        }
+
+                    }
+                }
+                Column {
+                    Spacer(modifier = Modifier.padding(top = 30.dp))
+
+                    OutlinedTextField(
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .width(140.dp)
+                            .height(60.dp),
+                        value = altura,
+                        onValueChange = { newText -> altura = newText },
+                        label = {
+                            Text(
+                                "Raio (r): ",
+                                color = Color.White,
+                                fontSize = 15.sp,
+                            )
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(corRoxa),
+                            unfocusedBorderColor = Color(corRoxa),
+                            focusedContainerColor = Color(corRoxa),
+                            unfocusedContainerColor = Color(corRoxa)
+                        ),
+                        shape = RoundedCornerShape(10.dp),
+                        keyboardOptions = KeyboardOptions.Default.copy(
+                            keyboardType = KeyboardType.Number
+                        )
+                    )
+
+                    Spacer(modifier = Modifier.padding(top = 20.dp))
+
+
+
+                    Button(
+                        onClick = {
+                            area =
+                                if (altura.isNotEmpty())  (altura.toDouble() * altura.toDouble()) * 3.14 else 0.0
+                        },
+                        shape = RoundedCornerShape(10.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(corCalc)),
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .width(140.dp)
+                            .height(50.dp)
+                    ) {
+                        Text(
+                            "Calcular",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Light
+                        )
+                    }
+
+                }
+            }
+        }
+
+    }
+
+
+}
+
 
 @Preview
 @Composable
@@ -830,5 +1031,13 @@ private fun PagePreview() {
 private fun CalcPreview() {
     FormasTheme {
         CalcReta(rememberNavController())
+    }
+}
+
+@Preview
+@Composable
+private fun CalPreview() {
+    FormasTheme {
+        CalcCirculo(rememberNavController())
     }
 }
