@@ -69,8 +69,13 @@ class MainActivity : ComponentActivity() {
                                 composable("mudarsenha") { SenhaNova(navController) }
                                 composable("senhaalterada") { NewPass(navController) }
                                 composable("home") { Home(navController) }
-                                composable("matematica") { PageMate(navController) }
+                                composable("matematica") { PageMath(navController) }
                                 composable("retangulo") { CalcReta(navController) }
+                                composable("circulo") { CalcCirculo(navController) }
+                                composable("quadrado") { CalcQuadrado(navController) }
+                                composable("trapezoide") { CalcTrapezio(navController) }
+                                composable("poligono") { CalcPoligono(navController) }
+
                             }
                         }
                     }
