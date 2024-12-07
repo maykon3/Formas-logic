@@ -101,9 +101,7 @@
 
   <h2>🚀 Mockup do Projeto</h2>
   <div style="display: flex; gap: 0px;">
-        <img src="Jla3P43tx11 (12).png" alt="Mockup do projeto"  width="300" height="300">
-        <img src="Jla3P43tx11 (13).png" alt="Mockup do projeto"  width="400" height="300">
-        <img src="Jla3P43tx11 (14).png" alt="Mockup do projeto"  width="400" height="300">
+        <img src="Mockupd.svg" alt="Mockup do projeto"  width="500" height="300">
 </div>
  
 
