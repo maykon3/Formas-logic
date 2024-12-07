@@ -100,10 +100,10 @@
   </ol>
 
   <h2>🚀 Mockup do Projeto</h2>
-  <div style="display: flex; gap: 15px;">
-        <img src="Jla3P43tx11 (12)" alt="Mockup do projeto"  width="400" height="150">
-        <img src="Jla3P43tx11 (13))" alt="Mockup do projeto"  width="400" height="150">
-        <img src="Jla3P43tx11 (14)" alt="Mockup do projeto"  width="400" height="150">
+  <div style="display: flex; gap: 0px;">
+        <img src="Jla3P43tx11 (12).png" alt="Mockup do projeto"  width="300" height="300">
+        <img src="Jla3P43tx11 (13).png" alt="Mockup do projeto"  width="400" height="300">
+        <img src="Jla3P43tx11 (14).png" alt="Mockup do projeto"  width="400" height="300">
 </div>
  
 
