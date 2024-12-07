@@ -1,6 +1,8 @@
 <body>
-  <img src="forma_logo.png" alt="Mockup do projeto">
-  <h1>📐 algebrApp</h1>
+  <img src="Group 403.svg" alt="Mockup do projeto"  width="400" height="150">
+  
+  <h1>Calculadora de Formas Geométricas 📐</h1>
+  
   <p>O <strong>algebrApp</strong> é uma calculadora de formas geométricas desenvolvida com Jetpack Compose. Ele permite calcular áreas e perímetros de diversas formas geométricas de maneira prática e intuitiva, utilizando uma interface moderna e responsiva.</p>
 
   <h2>✨ Funcionalidades</h2>
