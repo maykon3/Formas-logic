@@ -100,7 +100,12 @@
   </ol>
 
   <h2>🚀 Mockup do Projeto</h2>
-  <p>Inclua aqui uma captura de tela ou ilustração do aplicativo em funcionamento.</p>
+  <div style="display: flex; gap: 15px;">
+        <img src="Jla3P43tx11 (12)" alt="Mockup do projeto"  width="400" height="150">
+        <img src="Jla3P43tx11 (13))" alt="Mockup do projeto"  width="400" height="150">
+        <img src="Jla3P43tx11 (14)" alt="Mockup do projeto"  width="400" height="150">
+</div>
+ 
 
   <h2>📄 Licença</h2>
   <p>Este projeto está licenciado sob a licença MIT. Consulte o arquivo <code>LICENSE</code> para mais detalhes.</p>
